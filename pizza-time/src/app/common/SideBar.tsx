@@ -1,5 +1,5 @@
 'use client'
-import React, { createElement, useState } from "react";
+import React, {  } from "react";
 import DialogComponent from "./DialogComponent";
 import { BsHeartFill } from "react-icons/bs";
 import { MdHelp } from "react-icons/md";
@@ -7,10 +7,9 @@ import { FaReceipt } from "react-icons/fa";
 import { HiHome, HiOutlineArrowRightOnRectangle } from "react-icons/hi2";
 import Link from "next/link";
 import Image from "next/image"; 
-import pro from "../../../public/humans/pro.jpg"
-import logo from "../../../public/Objects/logo.jpg" // Ajout de l'importation de Image
+import logo from "../../../public/Objects/logo.jpg"; // Ajout de l'importation de Image
 import { useSideBarDrawer } from "../../../../lib/store"
-
+import moi from "../../../public/humans/moi.jpg"; // Ajout de l'importation de Image
 const Links = [
     { title: "Home", icon: HiHome, url: "/" },
     { title: "Orders", icon: FaReceipt, url: "/user/orders" },
@@ -29,7 +28,7 @@ const SideBar = () => {
                     </Link>
                 </div>
                 <div className="flex items-center p-3 transition-all font-semibold">
-                    <Image src={pro} width={40} height={40} alt="user-img" className="object-cover rounded-full" />
+                    <Image src={moi} width={40} height={40} alt="user-img" className="object-cover rounded-full" />
                     <div className="flex flex-col space-y-2 text-xs">
                         <span className="pl-4">Bouraoui</span>
                         <Link href="/user" className="pl-4 text-green-600">
