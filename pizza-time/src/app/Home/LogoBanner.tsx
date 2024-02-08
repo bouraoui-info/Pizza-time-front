@@ -8,7 +8,7 @@ const Logobanner = () => {
   return (
     <section className="relative h-72 md:h-96">
       {/* Banner Image */}
-      <div className="relative h-48 md:h-72 bg-no-repeat bg-cover w-full" style={{ backgroundImage: `url(${bannerImg})` }}></div>
+      <div className="relative h-72 md:h-72 bg-no-repeat bg-cover w-full" style={{ backgroundImage: `url(${bannerImg})` }}></div>
       
       {/* Logo */}
       <div className="absolute bottom-0 left-0 rounded-full w-28 h-28 p-1 overflow-hidden bg-white ring-2 ring-white">
@@ -19,7 +19,7 @@ const Logobanner = () => {
       <div className="absolute bottom-3 left-40">
         <div className="flex flex-col">
           <div>
-            <h1>SUANCOURT</h1>
+            <h1>PIZZA-TIME</h1>
           </div>
           <div className="flex items-center">
             <HiStar />
