@@ -62,7 +62,7 @@ const Boutiques = () => {
   };
 
   // Fonction pour vérifier si la boutique est ouverte en fonction de l'heure actuelle
-  const isBoutiqueOpen = (openingTime, closingTime) => {
+  const isBoutiqueOpen = (openingTime:string, closingTime:string):boolean => {
     const currentTime = getCurrentTime();
     return currentTime >= openingTime && currentTime <= closingTime;
   };
@@ -81,7 +81,10 @@ const Boutiques = () => {
                 <p className="text-gray-600">Likes: {item.likesN}</p>
                 <p className="text-gray-600">Price: ${item.price}</p>
                 <p className="text-gray-600">Discount: {item.PercentOff}%</p>
-                <p className="text-gray-600">{isBoutiqueOpen(item.openingTime, item.closingTime) ? 'Ouvert' : 'Fermé'}</p>
+                <p className={`text-${isBoutiqueOpen(item.openingTime, item.closingTime) ? 'green-600' : 'red-600'}`}>
+  {isBoutiqueOpen(item.openingTime, item.closingTime) ? 'Open' : 'Closed'}
+</p>
+
               </div>
             </div>
           </Link>
