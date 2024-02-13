@@ -4,14 +4,19 @@ import SideBar from "../app/common/SideBar";
 import LogoBanner from "../app/Home/LogoBanner";
 import Boutiques from "../app/Home/Boutiques";
 
-
 export default function Home() {
   return (
     <main className="">
-      <Header/>
-      <SideBar/>
-      <LogoBanner/>
-      <Boutiques/>
+      <Header />
+      <SideBar />
+      <LogoBanner />
+      <Boutiques />
+    
+
+
+
+
+
     </main>
   );
 }

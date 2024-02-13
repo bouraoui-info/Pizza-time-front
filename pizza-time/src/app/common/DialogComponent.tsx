@@ -38,11 +38,12 @@ const DialogComponent = ({ isVisible, onClose, children }: Props) => {
                             <Dialog.Panel className="overflow-y-auto flex-1 transition-all">
                                 <div className="flex justify-end mt-3">
                                     <button
-                                        className="p-2 rounded-full outline-none bg-gray-200 text-gray-500  hover:bg-green-200 hover:text-green-600"
+                                        className="p-2 rounded-full outline-none bg-gray-200 text-gray-500 hover:bg-green-200 hover:text-green-600 cursor-pointer"
                                         onClick={onClose}
                                     >
-                                        <HiOutlineXMark className="cursor-pointer" size={20} />
+                                        <HiOutlineXMark size={20} />
                                     </button>
+
                                 </div>
                                 {children}
                             </Dialog.Panel>
