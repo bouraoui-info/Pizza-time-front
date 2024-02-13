@@ -2,7 +2,7 @@ import React from 'react';
 import MenuModal from '../../Home/MenuModal';
 import { MenuData } from '@/Data/menu-data';
 import Link from 'next/link';
-import { } from 'next/navigation';
+
 
 const PizzaTimeGuyangourt = () => { 
   return (
