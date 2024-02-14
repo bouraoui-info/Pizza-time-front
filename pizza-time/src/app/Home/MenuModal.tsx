@@ -1,18 +1,21 @@
-"use client"
-import React from "react"
+import React, { useState } from "react";
 import MenuCard from "./MenuCard";
-import { useState } from "react";
-import { types } from "util";
-import {Menu} from '../../types';
-import Modal from "../common/Modal";
+import { Menu } from "../../types";
 import Image from "next/image";
-import FavoritesBtn from  "../common/favoritesBtn"
+import FavoritesBtn from "../common/FavoritesBtn";
+import { Disclosure } from "@headlessui/react";
+import { HiChevronDown } from "react-icons/hi";
+import {MenuData} from "@/Data/menu-data";
+import ModalComponent from "../common/ModalComponent";
+
 type Props = {
   menu: Menu;
-}
+};
 
 const MenuModal = ({ menu }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [prepare, setPrepare] = useState("");
+console.log({menu});
 
   const closeModal = () => setIsOpen(false);
   const openModal = () => setIsOpen(true);
@@ -20,16 +23,8 @@ const MenuModal = ({ menu }: Props) => {
   return (
     <React.Fragment>
       <MenuCard menu={menu} openModal={openModal} />
-        {/* {<Modal isOpen={isOpen} closeModal={closeModal}  />} */}
-        <div className="relative">
-          <Image src={menu.image} width={360} height={200}alt="menu-img"
-          className="h-56 w-full object-scale-down-t-lg"/>
-        </div>
-      <div className="absolute -top-[10px]-left-[15 px] w-12 h-22 rounded-full bg-white">
-        <FavoritesBtn/>
-      </div>
+      {isOpen && <ModalComponent isOpenModal={isOpen} setIsOpenModal={setIsOpen} closeModal={closeModal} title={menu.title} image={menu.image}/>}
     </React.Fragment>
-  )
-
-  }
+  );
+};
 export default MenuModal;

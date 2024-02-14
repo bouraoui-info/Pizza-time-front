@@ -1,9 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
-const favoritesBtn = () => {
+const FavoritesBtn = () => {
   return (
-    <div>favoritesBtn</div>
-  )
-}
+    <div className='relative hover:opacity-80 transition'>
+      <span className="text-green-700 -top-[20px] cursor-pointer">
+        <AiOutlineHeart size={40} />
+      </span>
+    </div>
+  );
+};
 
-export default favoritesBtn
+export default FavoritesBtn;

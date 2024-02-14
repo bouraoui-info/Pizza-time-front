@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image';
 import {Menu}   from '../../types';
+import FavoritesBtn from '../common/FavoritesBtn';
 type Props = {
   menu: Menu
   openModal: () => void
@@ -20,6 +21,9 @@ const MenuCard = ({ menu, openModal }: Props) => {
           <h2>{menu.title}</h2>
           <span className="text-green-600 font-semibold">${menu.price}</span>
         </div>
+        <div className="absolute -top-[10px] -left-[15px] w-12 h-22 rounded-full bg-white">
+        <FavoritesBtn />
+      </div>
       </div>
 
 

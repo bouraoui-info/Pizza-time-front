@@ -1,3 +1,4 @@
+import Boissons   from "../../public/ImgMenuGuyancourt/Boissons.jpg"
 export const MenuData = [
     {
       id: "6bf56de4-7ed2-4ece-b45b-5001b52a99bab",
@@ -6,7 +7,7 @@ export const MenuData = [
       longDescr:
         "marinated oats quesadilla is a little greasy with a tough texture. It has subtle hints of wheat with myrtle plant and has a dash of calamint",
       price: 104,
-      image: "/public/MenuGuyancourt/Biggy Slice.jpg",
+      image: "/ImgMenuGuyancourt/Biggy Slice.jpg",
       category: "breakfast",
   
       prepType: ["well-done", "medium"],
@@ -18,7 +19,7 @@ export const MenuData = [
       longDescr:
         "marinated oats quesadilla is a little greasy with a tough texture. It has subtle hints of wheat with myrtle plant and has a dash of calamint",
       price: 71,
-      image: "/public/MenuGuyancourt/Boissons.jpg",
+      image: "/ImgMenuGuyancourt/Boissons.jpg",
       category: "meals",
   
       prepType: ["well-done", "medium"],
@@ -30,7 +31,7 @@ export const MenuData = [
       longDescr:
         "marinated oats quesadilla is a little greasy with a tough texture. It has subtle hints of wheat with myrtle plant and has a dash of calamint",
       price: 41,
-      image: "/public/MenuGuyancourt/Coffee.jpg",
+      image: "/ImgMenuGuyancourt/Coffe.jpg",
       category: "beverages",
   
       prepType: ["well-done", "medium"],
@@ -42,7 +43,7 @@ export const MenuData = [
       longDescr:
         "marinated oats quesadilla is a little greasy with a tough texture. It has subtle hints of wheat with myrtle plant and has a dash of calamint",
       price: 39,
-      image: "/img/food/steak.png",
+      image: "/ImgMenuGuyancourt/Desserts.jpg",
       category: "meat",
   
       prepType: ["well-done", "medium"],
@@ -54,7 +55,7 @@ export const MenuData = [
       longDescr:
         "marinated oats quesadilla is a little greasy with a tough texture. It has subtle hints of wheat with myrtle plant and has a dash of calamint",
       price: 110,
-      image: "/img/food/steak2.png",
+      image: "/ImgMenuGuyancourt/Mega.jpg",
       category: "bbq",
   
       prepType: ["well-done", "medium"],
@@ -66,7 +67,7 @@ export const MenuData = [
       longDescr:
         "marinated oats quesadilla is a little greasy with a tough texture. It has subtle hints of wheat with myrtle plant and has a dash of calamint",
       price: 35,
-      image: "/img/food/sandwich.png",
+      image: "/ImgMenuGuyancourt/Menus.jpg",
       category: "breakfast",
   
       prepType: ["well-done", "medium"],
@@ -78,7 +79,7 @@ export const MenuData = [
       longDescr:
         "marinated oats quesadilla is a little greasy with a tough texture. It has subtle hints of wheat with myrtle plant and has a dash of calamint",
       price: 113,
-      image: "/img/food/salmond.png",
+      image: "/ImgMenuGuyancourt/Offers  Pizza En Livraison.jpg",
       category: "meals",
   
       prepType: ["well-done", "medium"],
@@ -90,9 +91,9 @@ export const MenuData = [
       longDescr:
         "marinated oats quesadilla is a little greasy with a tough texture. It has subtle hints of wheat with myrtle plant and has a dash of calamint",
       price: 56,
-      image: "/img/food/mojito.png",
+      image: "/ImgMenuGuyancourt/Offres.jpg",
       category: "drinks",
-  
+
       prepType: ["well-done", "medium"],
     },
   ];
