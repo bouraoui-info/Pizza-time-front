@@ -23,7 +23,7 @@ console.log({menu});
   return (
     <React.Fragment>
       <MenuCard menu={menu} openModal={openModal} />
-      {isOpen && <ModalComponent isOpenModal={isOpen} setIsOpenModal={setIsOpen} closeModal={closeModal} title={menu.title} image={menu.image}/>}
+      {isOpen && <ModalComponent isOpenModal={isOpen} setIsOpenModal={setIsOpen} closeModal={closeModal} title={menu.title} image={menu.image} menu={menu}/>}
     </React.Fragment>
   );
 };
