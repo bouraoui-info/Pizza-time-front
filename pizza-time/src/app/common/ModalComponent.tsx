@@ -1,5 +1,5 @@
 "use client";
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Image from 'next/image';
 import { ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import { MenuData } from '@/Data/menu-data';
@@ -31,6 +31,7 @@ const customStyles = {
 const PutItemsIntoCart = () => { }
 const ModalComponent = ({ isOpenModal, setIsOpenModal,
   title, image, menu }: ModalProps) => {
+  const [instructions, setInstructions] = useState("");
   console.log({ title })
   const [isOpen, setIsOpen] = React.useState(isOpenModal)
   return (
@@ -62,10 +63,7 @@ const ModalComponent = ({ isOpenModal, setIsOpenModal,
 
               <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75">
                 <span>Preparation</span>
-                <HiChevronDown
-                // className={`${
-                //   open ? 'rotate-180 transform' : '' } h-5 w-5 text-purple-500`}
-                />
+                <HiChevronDown/>
               </Disclosure.Button>
               <Disclosure.Panel className="px-4 pb-2 pt-4">
                 {menu.prepType?.map((prep: any, index: any) => (
@@ -78,6 +76,15 @@ const ModalComponent = ({ isOpenModal, setIsOpenModal,
                   </div>
                 ))}
               </Disclosure.Panel>
+
+              
+              <div className="mt-4">
+            <p className="text-center mb-3">Special Instructions</p>
+            <input type="text" 
+            className="w-full h-16 rounded bg-green-50 border border-green-500 focus:outline-none focus-visible:ring-green-500"
+            onChange={(e) => setInstructions(e.target.value)}
+            />
+            </div>
 
 
             </Disclosure>
@@ -97,14 +104,26 @@ const ModalComponent = ({ isOpenModal, setIsOpenModal,
           <h2
             onClick={() => { setIsOpen(false); setIsOpenModal(false) }}
           >
-            Close
+            <button className="border border-red-500 bg-red-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline">Close</button>
           </h2>
-          <div className="mt-4">
-            <button className="form-button" onClick={PutItemsIntoCart}>
+
+          <div className="mt-4 flex justify-center">
+            <button className="border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline"
+            onClick={PutItemsIntoCart}>
               Add to Cart :$ {menu.price}
             </button>
           </div>
         </ModalFooter>
+
+
+
+
+
+
+
+
+
+
       </Modal>
     </div>
 
