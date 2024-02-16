@@ -1,111 +1,62 @@
-"use client";
-
-import {useState } from "react";
-
+import React, { useState } from "react";
 import CartList from "../cart/CartList";
-
-
+import { MenuData } from "../../Data/menu-data";
 
 const CartSummary = () => {
+  // Fonction pour calculer le nombre total d'articles
+  const calculateTotalNumberOfArticles = (cartItems:any) => {
+    let totalArticles = 0;
 
-  const [subTotal, setSubTotal] = useState(21);
-  const [note, setNote] = useState("");
-  const nbrarticle =  useState("")
-  const total = subTotal ;
+    // Itérer sur chaque article dans le panier et ajouter ses quantités au total
+    cartItems.forEach((item:any) => {
+      totalArticles += item.quantity;
+    });
 
-  
+    return totalArticles;
+  };
+
+  // Fonction pour calculer la somme des prix des articles
+  const calculateTotalPrice = (cartItems:any) => {
+    let totalPrice = 0;
+
+    // Itérer sur chaque article dans le panier et ajouter son prix à la somme totale
+    cartItems.forEach((item:any) => {
+      totalPrice += item.price * item.quantity;
+    });
+
+    return totalPrice;
+  };
+
+  // Calculer le prix total
+  const totalPrice = calculateTotalPrice(MenuData);
+
+  // Calculer le nombre total d'articles
+  const totalArticles = calculateTotalNumberOfArticles(MenuData);
+
   return (
-    <>
-      <div className=" border-gray-200 py-2">
-        <>
-          <CartList />
-          <div className="px-4 sm:px-6 lg:px-8 mt-2">
-            <div className="border-t border-gray-200 py-4">
-              <h2 className="text-lg leading-6 my-4 font-medium text-gray-900">
-                Delivery Address
-              </h2>
-            </div>
-          </div>
-          <div>
-            <div className="px-4 sm:px-6 lg:px-8 mt-2">
-              <h2 className="text-lg leading-6 my-4 font-medium text-gray-900">
-                Cart Summary
-              </h2>
-              <p className="mt-1 max-w-2xl text-sm text-gray-500">
-                Review your order details and then pay securely via Stripe
-              </p>
-            </div>
+    <div className="border border-gray-200 p-4">
+      <CartList />
 
-            <div className="px-4 sm:px-6 lg:px-8 mt-2">
-              <div className="border-t border-gray-200 py-4">
-                <dl className="grid grid-cols-2 gap-x-4 gap-y-4 ">
-                  <div className="">
-                    <dt className="text-sm font-medium text-gray-500">
-                      Subtotal
-                    </dt>
-                    <dd className="mt-1 text-sm text-gray-900">
-                      $ {subTotal.toFixed(2)}
-                    </dd>
-                  </div>
-                  <div className="">
-                    <dt className="text-sm font-medium text-gray-500">
-                      Discount
-                    </dt>
-                  </div>
-                 
-                  <div className="">
-                    <dt className="text-sm font-medium text-gray-500">
-                      Delivery Fee
-                    </dt>
-                  </div>
-                  <div className="">
-                    <dt className="text-sm font-medium text-gray-500">Total</dt>
-                    <dd className="mt-1 text-lg font-semibold text-green-700">
-                      $ {total.toFixed(2)}
-                    </dd>
-                  </div>
-                </dl>
-              </div>
-            </div>
-
-            <div className="px-4 sm:px-6 lg:px-8 mt-2">
-              <div className="border-t border-gray-200 py-4">
-                <h2 className="text-lg leading-6 font-medium text-gray-500">
-                  Add a Note
-                </h2>
-                <p className="mt-1 max-w-2xl text-sm text-gray-500">Optional</p>
-                <div className="mt-2">
-                  <textarea
-                    id="note"
-                    name="note"
-                    rows={3}
-                    className="w-full h-16 rounded bg-green-50 border border-green-500 focus:border-green-500  focus:outline-none focus-visible:ring-green-500"
-                    onChange={(e) => setNote(e.target.value)}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </>
-
-        <>
-          
-
-          <div className="px-4 sm:px-6 lg:px-8 mt-2">
-            <div className="flex justify-end">
-              <button
-                className=" py-2 px-4 
-              border border-transparent shadow-sm text-sm font-medium rounded-md
-               text-white bg-green-600 hover:bg-green-700 focus:outline-none 
-               focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
-              >
-                CheckOut
-              </button>
-            </div>
-          </div>
-        </>
+      <div className="px-4 sm:px-6 lg:px-8 mt-2">
+        <div className="border-t border-gray-200 py-4">
+          <dl className="grid grid-cols-2 gap-x-4 gap-y-4">
+            {/* Vous pouvez ajouter plus d'informations récapitulatives ici si nécessaire */}
+          </dl>
+        </div>
       </div>
-    </>
+
+      <div className="px-4 sm:px-6 lg:px-8 mt-2">
+        <div className="flex justify-end">
+          <button className="flex items-center justify-center bg-green-600 text-lg px-4 py-1 text-white border border-green-500 space-x-2  hover:text-green-700 hover:bg-green-200">
+            <div className="flex items-center space-x-4">
+              <p className="text-gray-700">{totalArticles} articles</p>
+              <p className="text-gray-700">Paiement</p>
+              <p className="text-gray-700">Total: ${totalPrice.toFixed(2)}</p>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };
 

@@ -13,3 +13,4 @@ export const useSideBarDrawer = create<SideBarDrawerStore>((set) => ({
   onSideBarOpen: () => set({ isSideBarOpen: true }), // Function to open the sidebar drawer
   onSideBarClose: () => set({ isSideBarOpen: false }), // Function to close the sidebar drawer
 }));
+
