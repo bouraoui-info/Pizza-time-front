@@ -7,7 +7,8 @@ import { useSnapshot } from "valtio";
 
 
 const CartSummary = () => {
-  const { panier } = useSnapshot(store);
+  const { panier,time } = useSnapshot(store);
+
 
   // Fonction pour calculer le nombre total d'articles
   const calculateTotalNumberOfArticles = (cartItems:any) => {

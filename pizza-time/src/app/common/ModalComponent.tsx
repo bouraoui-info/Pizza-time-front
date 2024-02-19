@@ -8,8 +8,7 @@ import { HiChevronDown } from "react-icons/hi2";
 import { TimePicker } from 'antd'; // Import TimePicker from Ant Design
 import moment from 'moment'; // Import moment for time manipulation
 import { Menu } from "@/types";
-import toast from 'react-hot-toast';
-import store, { setPanier } from '../store';
+import store, { setPanier, setTime } from '../store';
 import { useSnapshot } from 'valtio';
 
 
@@ -37,7 +36,7 @@ const customStyles = {
 
 const ModalComponent: React.FC<ModalProps> = ({ isOpenModal, setIsOpenModal, title, image, menu ,user}: ModalProps) => {
   const { panier } = useSnapshot(store);
-
+  const { time } = useSnapshot(store);
   const [selectedTime, setSelectedTime] = useState<moment.Moment | null>(null); // State for selected time
   const [isOpen, setIsOpen] = useState(false);
 const MenuToAdd =""
@@ -48,19 +47,8 @@ const PutItemsIntoCart = (MenuToAdd:any) => {
 let newPanier=[...panier]
 newPanier.push(MenuToAdd)
 setPanier(newPanier)
+setTime(selectedTime?.format("HH:mm"))
 }
-
-// if (!user) {
-//   toast.error("OOps, login first", { duration: 5000 });
-//   closeModal();
-//   onOpen(); }
-// else
-//   {
-//     PutItemsIntoCart(MenuToAdd)
-//     toast.success("Menu Added to Cart", { duration: 4000 });
-//     setTimeout(closeModal, 2000);
-//   }
- 
   return (
     <div>
       <Modal
