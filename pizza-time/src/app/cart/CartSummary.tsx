@@ -1,8 +1,14 @@
+"use client"
 import React, { useState } from "react";
 import CartList from "../cart/CartList";
 import { MenuData } from "../../Data/menu-data";
+import store from "../store";
+import { useSnapshot } from "valtio";
+
 
 const CartSummary = () => {
+  const { panier } = useSnapshot(store);
+
   // Fonction pour calculer le nombre total d'articles
   const calculateTotalNumberOfArticles = (cartItems:any) => {
     let totalArticles = 0;
@@ -28,10 +34,10 @@ const CartSummary = () => {
   };
 
   // Calculer le prix total
-  const totalPrice = calculateTotalPrice(MenuData);
+  const totalPrice = calculateTotalPrice(panier);
 
   // Calculer le nombre total d'articles
-  const totalArticles = calculateTotalNumberOfArticles(MenuData);
+  const totalArticles = calculateTotalNumberOfArticles(panier);
 
   return (
     <div className="border border-gray-200 p-4">

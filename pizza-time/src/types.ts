@@ -1,6 +1,7 @@
 import { type } from "os";
 
 export type Menu ={
+prepType: any;
 
 id:string; 
 title:string; 

@@ -3,10 +3,15 @@ import React, { useState } from 'react';
 import { HiPlusCircle, HiMinusCircle } from 'react-icons/hi';
 import { MenuData } from "../../Data/menu-data";
 import {FaPencil  } from 'react-icons/fa6';
+import TimePicker from 'antd/es/time-picker';
+import store from '../store';
+import { useSnapshot } from 'valtio';
 
 const CartList = () => {
+  const { panier } = useSnapshot(store);
+
   // État local pour la quantité de chaque article
-  const [quantities, setQuantities] = useState(MenuData.map(item => item.quantity));
+  const [quantities, setQuantities] = useState(panier.map((item:any) => item.quantity));
 
   // Fonction pour augmenter la quantité d'un article
   const increaseQuantity = (index:any) => {
@@ -23,13 +28,14 @@ const CartList = () => {
       setQuantities(newQuantities);
     }
   };
+console.log({panier});
 
   return (
     <div>
-      <div>Commande en Livraison à </div>
+      <div>Commande en Livraison à <TimePicker/></div>
 
       <div className="">
-        {MenuData.map((menuItem, index) => (
+        {panier.map((menuItem:any, index:number) => (
           <div className="flex justify-between items-center mt-3" key={menuItem.id}>
             <div className="flex space-x-3 border rounded-full px-2">
               {/* Bouton pour diminuer la quantité */}

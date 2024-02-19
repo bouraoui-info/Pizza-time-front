@@ -10,7 +10,7 @@ export const MenuData = [
       image: "/ImgMenuGuyancourt/Biggy Slice.jpg",
       category: "breakfast",
       prepType: ["well-done", "medium"],
-      quantity: 2,
+      quantity: 1,
     },
     {
       id: "e08155e0-8708-47c3-8234-09b30f147f64",
@@ -21,7 +21,7 @@ export const MenuData = [
       price: 71,
       image: "/ImgMenuGuyancourt/Boissons.jpg",
       category: "meals",
-      quantity: 2,
+      quantity: 1,
       prepType: ["well-done", "medium"],
     },
     {
@@ -33,7 +33,7 @@ export const MenuData = [
       price: 41,
       image: "/ImgMenuGuyancourt/Coffe.jpg",
       category: "beverages",
-      quantity: 2,
+      quantity: 1,
       prepType: ["well-done", "medium"],
     },
     {
@@ -45,7 +45,7 @@ export const MenuData = [
       price: 39,
       image: "/ImgMenuGuyancourt/Desserts.jpg",
       category: "meat",
-      quantity: 2,
+      quantity: 1,
 
       prepType: ["well-done", "medium"],
     },
@@ -58,7 +58,7 @@ export const MenuData = [
       price: 110,
       image: "/ImgMenuGuyancourt/Mega.jpg",
       category: "bbq",
-      quantity: 2,
+      quantity: 1,
 
       prepType: ["well-done", "medium"],
     },
@@ -71,7 +71,7 @@ export const MenuData = [
       price: 35,
       image: "/ImgMenuGuyancourt/Menus.jpg",
       category: "breakfast",
-      quantity: 2,
+      quantity: 1,
 
       prepType: ["well-done", "medium"],
     },
@@ -84,7 +84,7 @@ export const MenuData = [
       price: 113,
       image: "/ImgMenuGuyancourt/Offers  Pizza En Livraison.jpg",
       category: "meals",
-      quantity: 2,
+      quantity: 1,
 
       prepType: ["well-done", "medium"],
     },
@@ -97,7 +97,7 @@ export const MenuData = [
       price: 56,
       image: "/ImgMenuGuyancourt/Offres.jpg",
       category: "drinks",
-      quantity: 2,
+      quantity: 1,
 
       prepType: ["well-done", "medium"],
     },
