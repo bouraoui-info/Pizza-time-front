@@ -4,6 +4,7 @@ import styles from './Header.module.css';
 import { HiBars3, HiOutlineShoppingCart } from "react-icons/hi2";
 import Link from 'next/link';
 import { useSideBarDrawer } from '../../../../lib/store';
+import Location from '../Maps/Location';
 
 const Header = () => {
     const { onSideBarOpen } = useSideBarDrawer()
@@ -16,7 +17,17 @@ const Header = () => {
                     onClick={onSideBarOpen}>
                     <div className="cursor-pointer shrink-0"> <HiBars3 size={28} /></div>
                 </button>
-                <button>Location</button> {/* Corrected button tag closing */}
+
+                <button>
+                    <div className="px-4 sm:px-6 lg:px-8 mt-2">
+                        <div className="border-t border-gray-200 py-4">
+                            <h2 className="text-lg leading-6 my-4 font-medium text-gray-900">
+                                <Location/> </h2>
+                        </div>
+                    </div>
+
+
+                </button> {/* Corrected button tag closing */}
             </div>
             {/* Right Area */}
             <div className="hidden md:flex items-center justify-end space-x-4"> {/* Corrected justify-and to justify-end */}
