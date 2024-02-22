@@ -6,10 +6,13 @@ import Header from '@/app/common/Header';
 import SideBar from '@/app/common/SideBar';
 import Logobanner from '@/app/Home/LogoBanner';
 import { Menu } from '@/types';
+import { card } from '@/constats';
+import Icons from '@/app/icons/Icons';
 
 const PizzaTimeGuyangourt = () => { 
+  
   return (
-    <div> 
+    <div>
       <Header />
       <SideBar />
       <Logobanner/>

@@ -19,7 +19,9 @@ type ModalProps = {
   menu: Menu; // Assuming Menu is a custom type
   setIsOpenModal: Function;
   image: any;
-  user: any; }
+  user: any; 
+  
+}
 
 const customStyles = {
   content: {
@@ -70,7 +72,7 @@ setTime(selectedTime?.format("HH:mm"))
 
         <ModalBody>
           <Image src={image} width={360} height={200} alt="menu-img" className="h-56 w-full object-scale-down rounded-t-lg" />
-          {menu.prepType && (
+          {menu && menu.prepType && (
             <Disclosure>
               <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75">
                 <span>Preparation</span>
@@ -115,7 +117,7 @@ setTime(selectedTime?.format("HH:mm"))
             className="border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline"
              onClick={()=>PutItemsIntoCart(menu)}
           >
-            Add to Cart :$ {menu.price}
+            Add to Cart :$ {menu && menu.price}
           </button>
         </ModalFooter>
       </Modal>
