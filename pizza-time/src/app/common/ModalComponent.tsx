@@ -19,8 +19,8 @@ type ModalProps = {
   menu: Menu; // Assuming Menu is a custom type
   setIsOpenModal: Function;
   image: any;
-  user: any; 
-  
+  user: any;
+
 }
 
 const customStyles = {
@@ -36,21 +36,22 @@ const customStyles = {
 };
 
 
-const ModalComponent: React.FC<ModalProps> = ({ isOpenModal, setIsOpenModal, title, image, menu ,user}: ModalProps) => {
+const ModalComponent: React.FC<ModalProps> = ({ isOpenModal, setIsOpenModal, title, image, menu, user }: ModalProps) => {
   const { panier } = useSnapshot(store);
   const { time } = useSnapshot(store);
   const [selectedTime, setSelectedTime] = useState<moment.Moment | null>(null); // State for selected time
   const [isOpen, setIsOpen] = useState(false);
-const MenuToAdd =""
-const closeModal = () => setIsOpen(false);
-const onOpen = () => setIsOpen(true);
+  const MenuToAdd = ""
+  const closeModal = () => setIsOpen(false);
+  const onOpen = () => setIsOpen(true);
+  const [cartCount, setCartCount] = useState(0);
 
-const PutItemsIntoCart = (MenuToAdd:any) => { 
-let newPanier=[...panier]
-newPanier.push(MenuToAdd)
-setPanier(newPanier)
-setTime(selectedTime?.format("HH:mm"))
-}
+  const PutItemsIntoCart = (MenuToAdd: any) => {
+    let newPanier = [...panier]
+    newPanier.push(MenuToAdd)
+    setPanier(newPanier)
+    setTime(selectedTime?.format("HH:mm"))
+  }
   return (
     <div>
       <Modal
@@ -99,7 +100,7 @@ setTime(selectedTime?.format("HH:mm"))
               defaultValue={selectedTime} // Set default value
               onChange={(time: any) => setSelectedTime(time)} // Handle time change
               format="HH:mm" // Set format
-              minuteStep={5} // Set minute step
+              minuteStep={15} // Set minute step
               className="w-full mt-4" // Add custom styling if needed
             />
           </div>
@@ -115,7 +116,7 @@ setTime(selectedTime?.format("HH:mm"))
 
           <button
             className="border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline"
-             onClick={()=>PutItemsIntoCart(menu)}
+            onClick={() => PutItemsIntoCart(menu)}
           >
             Add to Cart :$ {menu && menu.price}
           </button>

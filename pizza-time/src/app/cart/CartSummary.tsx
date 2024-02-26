@@ -52,10 +52,10 @@ const CartSummary = () => {
         </div>
       </div>
 
-      <div className="px-4 sm:px-6 lg:px-8 mt-2">
-        <div className="flex justify-end">
-          <button className="flex items-center justify-center bg-green-600 text-lg px-4 py-1 text-white border border-green-500 space-x-2  hover:text-green-700 hover:bg-green-200">
-            <div className="flex items-center space-x-4">
+      <div className=" justify-center px-4 sm:px-6 lg:px-8 mt-2">
+        <div className="flex w-80 justify-center justify-end">
+          <button className="flex w-96 items-center justify-center bg-green-600 text-lg px-4 py-1 text-white border border-green-500 space-x-2  hover:text-green-700 hover:bg-green-200">
+            <div className="w-96 flex items-center justfiy-center  space-x-4">
               <p className="text-gray-700">{totalArticles} articles</p>
               <p className="text-gray-700">Paiement</p>
               <p className="text-gray-700">Total: ${totalPrice.toFixed(2)}</p>

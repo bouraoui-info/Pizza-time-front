@@ -32,7 +32,7 @@ const CartList = () => {
 
   return (
       <div>
-          < div className="w-96 flex items-center justify-center bg-black text-lg px-4 py-1 text-white border border-green-500 space-x-2 rounded-full hover:text-green-700 hover:bg-black-200">
+          < div className="w-82 flex items-center justify-center bg-black text-lg px-4 py-1 text-white border border-green-500 space-x-2 rounded-full hover:text-green-700 hover:bg-black-200">
             Commande en Livraison à :{time} <HiMiniPencilSquare />
           </div>
 

@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import MenuCard from "./MenuCard";
 import { Menu } from "../../types";
-import Image from "next/image";
-import FavoritesBtn from "../common/FavoritesBtn";
-import { Disclosure } from "@headlessui/react";
-import { HiChevronDown } from "react-icons/hi";
-import {MenuData} from "@/Data/menu-data";
 import ModalComponent from "../common/ModalComponent";
 
 type Props = {
@@ -23,7 +18,7 @@ console.log({menu});
   return (
     <React.Fragment>
       <MenuCard menu={menu} openModal={openModal} />
-      {isOpen && <ModalComponent isOpenModal={isOpen} setIsOpenModal={setIsOpen} closeModal={closeModal} title={menu.title} image={menu.image} menu={menu}/>}
+      {isOpen && <ModalComponent isOpenModal={isOpen} setIsOpenModal={setIsOpen} closeModal={closeModal} title={menu.title} image={menu.image} menu={menu} user={undefined}/>}
     </React.Fragment>
   );
 };

@@ -4,10 +4,10 @@ import SideBar from "../app/common/SideBar";
 import LogoBanner from "../app/Home/LogoBanner";
 import Boutiques from "../app/Home/Boutiques";
 import Footer from "./common/Footer";
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Home() {
+  
   return (
     <main className="">
       <Header />
@@ -15,13 +15,6 @@ export default function Home() {
       <LogoBanner />
       <Boutiques />
       <Footer/>
-      
-    
-
-
-
-
-
     </main>
   );
 }
