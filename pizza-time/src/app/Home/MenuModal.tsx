@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from "react";
 import MenuCard from "./MenuCard";
 import { Menu } from "../../types";
