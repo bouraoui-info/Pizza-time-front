@@ -43,14 +43,14 @@ function RegistrationPage() {
     }
   };
 
-  return (
+    return (
     <div className="registration-page bg-gray-100 min-h-screen flex flex-col justify-center items-center">
       <div className='d-flex flex-row mb-5'> <div style={{ top: "11px", position: "relative" }} onClick={() => setIsDropdownOpen(false)} ><FiChevronLeft size={32} /></div>
-              <h1 className='ml-5 pl-5'>Inscription</h1>
-            </div>
+        <h1 className='ml-5 pl-5'>Inscription</h1>
+      </div>
       <form onSubmit={handleSubmit} className="w-96">
         <div className="mb-4">
-          <label htmlFor="name" className="block mb-1 flex items-center">
+          <label htmlFor="name" className="mb-1 items-center">
             <TbUserSquareRounded /><div className="mr-2"> Nom</div>
           </label>
           <input
@@ -64,7 +64,7 @@ function RegistrationPage() {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="firstName" className="block mb-1 flex items-center">
+          <label htmlFor="firstName" className="mb-1 items-center">
             <TbUserSquareRounded /><div className="mr-2">Prénom</div>
 
           </label>
@@ -79,7 +79,7 @@ function RegistrationPage() {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="phone" className="block mb-1 flex items-center">
+          <label htmlFor="phone" className="mb-1 items-center">
             <GiSmartphone /> <div className="mr-2" >Téléphone</div>
 
           </label>
@@ -94,7 +94,7 @@ function RegistrationPage() {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="email" className="block mb-1 flex items-center">
+          <label htmlFor="email" className="mb-1 items-center">
             <MdOutlineAttachEmail /> <div className="mr-2" >E-mail</div>
 
           </label>
@@ -109,7 +109,7 @@ function RegistrationPage() {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="password" className="block mb-1 flex items-center ">
+          <label htmlFor="password" className="mb-1 items-center ">
             <RiLockPasswordFill /> <div className="mr-2" ></div>
             Mot de passe
           </label>
@@ -124,7 +124,7 @@ function RegistrationPage() {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="confirmPassword" className="block mb-1 flex items-center">
+          <label htmlFor="confirmPassword" className="mb-1 items-center">
 
           </label>
           <input
@@ -148,9 +148,10 @@ function RegistrationPage() {
       <Link href="/">
         <div className="flex justify-center mt-4 text-gray-500 text-xl ">Mention légales</div>
       </Link>
-      
+
     </div>
   );
+
 }
 
 export default RegistrationPage;
