@@ -21,5 +21,6 @@ console.log({menu});
       {isOpen && <ModalComponent isOpenModal={isOpen} setIsOpenModal={setIsOpen} closeModal={closeModal} title={menu.title} image={menu.image} menu={menu} user={undefined}/>}
     </React.Fragment>
   );
+  
 };
 export default MenuModal;

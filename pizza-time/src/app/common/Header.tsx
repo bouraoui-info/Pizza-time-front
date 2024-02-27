@@ -51,19 +51,14 @@ const Header = () => {
                        
                     </div>
                 </Link>}
-                {/* Afficher le compteur de panier */}
-                {/* <div className="fixed bottom-4 right-4 bg-purple-500 text-white rounded-full w-10 h-10 flex items-center justify-center cursor-pointer">
-                    <span className="text-xs font-bold" onClick={() => updateCartCount()}>{cartCount}</span>
-                </div> */}
+                
                 <div className="flex items-center gap-x-8 relative">
-                    {/* <button className="p-2 rounded-full bg-slate-200 text-gray-500 hover:bg-green-200 hover:text-green-600"
-                        
-                       > */}
+                    
                         {!isDropdownOpen &&<div className="cursor-pointer shrink-0" onClick = {toggleDropdown}>
                             <HiBars3 size={28} />
                         </div>}
                         {isDropdownOpen && <DropDownMenuDynamic />}
-                    {/* </button> */}
+                    
                 </div>
             </div>
         </header>

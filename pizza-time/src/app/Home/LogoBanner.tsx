@@ -12,25 +12,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Logobanner = () => {
   const bannerImg = "/Objects/banner.jpg";
-  const companyIndexToShow = 0;
-  if (companyIndexToShow < 0 || companyIndexToShow >= Object.values(card.shoplist).length) {
-    return <p>Index d'entreprise invalide</p>;
-  }
-  const companyToShow = Object.values(card.shoplist)[companyIndexToShow];
-
+  
   return (
     <div >
       {/* Banner Image */}
-      <div className='logoBanner__clz'> <p className='ml-2'>{`${companyToShow.shopid.replace(/\s/g, "")}`}  </p>
-        <p className='ml-2'>ouvert de {companyToShow.openingTime} à {companyToShow.closingTime} </p>
-        <p className='ml-2'>
-          {companyToShow.Address},{companyToShow.PostalCode} {companyToShow.town}
-        </p>
-        <a href='' className='ml-2'>Informations utiles</a>
-        <Icons/>
-       
-      </div>
-      <div className="relative h-72 md:h-72 bg-no-repeat bg-cover w-full" style={{ backgroundImage: `url(${bannerImg})` }} />
+      
+      {/* <div className="relative h-72 md:h-72 bg-no-repeat bg-cover w-full" style={{ backgroundImage: `url(${bannerImg})` }} /> */}
+      <div className=" h-72 md:h-72 bg-no-repeat bg-cover w-full" style={{ backgroundImage: `url(${bannerImg})` }} />
 
       {/* Logo */}
       {/* <div className="absolute bottom-0 left-0 rounded-full w-28 h-28 p-1 overflow-hidden bg-white ring-2 ring-white"> */}
