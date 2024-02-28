@@ -8,7 +8,7 @@ import { HiHome, HiOutlineArrowRightOnRectangle } from "react-icons/hi2";
 import Link from "next/link";
 import Image from "next/image"; 
 import logo from "../../../public/Objects/logo.jpg"; // Ajout de l'importation de Image
-import { useSideBarDrawer } from "../../../../lib/store"
+import { useSideBarDrawer } from "../sideBarDrawerStore"
 import moi from "../../../public/humans/moi.jpg"; // Ajout de l'importation de Image
 const Links = [
     { title: "Home", icon: HiHome, url: "/" },
@@ -18,6 +18,7 @@ const Links = [
 ];
 
 const SideBar = () => {
+    
     const {isSideBarOpen,onSideBarClose}=useSideBarDrawer()
     return (
         <DialogComponent isVisible={isSideBarOpen} onClose={onSideBarClose}>

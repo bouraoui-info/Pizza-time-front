@@ -7,9 +7,6 @@ import { GiSmartphone } from 'react-icons/gi';
 import { MdOutlineAttachEmail } from 'react-icons/md';
 import { FiChevronLeft } from 'react-icons/fi';
 import { setIsDropdownOpen } from '../store';
-
-
-
 function RegistrationPage({ setShowRegistration }: any) {
   const [name, setName] = useState('');
   const [firstName, setFirstName] = useState('');

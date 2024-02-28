@@ -39,7 +39,7 @@ const customStyles = {
 const ModalComponent: React.FC<ModalProps> = ({ isOpenModal, setIsOpenModal, title, image, menu, user }: ModalProps) => {
   const { panier } = useSnapshot(store);
   const { time } = useSnapshot(store);
-  const [selectedTime, setSelectedTime] = useState<moment.Moment | null>(null); // State for selected time
+  const [selectedTime, setSelectedTime] = useState<moment.Moment | any>(null); // State for selected time
   const [isOpen, setIsOpen] = useState(false);
   const MenuToAdd = ""
   const closeModal = () => setIsOpen(false);
