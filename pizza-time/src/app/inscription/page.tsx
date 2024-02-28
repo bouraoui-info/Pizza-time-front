@@ -8,7 +8,9 @@ import { MdOutlineAttachEmail } from 'react-icons/md';
 import { FiChevronLeft } from 'react-icons/fi';
 import { setIsDropdownOpen } from '../store';
 
-function RegistrationPage() {
+
+
+function RegistrationPage({setShowRegistration}:any) {
   const [name, setName] = useState('');
   const [firstName, setFirstName] = useState('');
   const [phone, setPhone] = useState('');
@@ -44,8 +46,8 @@ function RegistrationPage() {
   };
 
     return (
-    <div className="registration-page bg-gray-100 min-h-screen flex flex-col justify-center items-center">
-      <div className='d-flex flex-row mb-5'> <div style={{ top: "11px", position: "relative" }} onClick={() => setIsDropdownOpen(false)} ><FiChevronLeft size={32} /></div>
+    <div className="registration-page bg-gray-100 ">
+      <div className='d-flex flex-row mb-5'> <div style={{ top: "11px", position: "relative" }} onClick={() => setShowRegistration(false)} ><FiChevronLeft size={32} /></div>
         <h1 className='ml-5 pl-5'>Inscription</h1>
       </div>
       <form onSubmit={handleSubmit} className="w-96">
@@ -141,7 +143,7 @@ function RegistrationPage() {
         <p className="mb-4 text-sm">
           1 Minuscule & 1 Majuscule <br /> 1 chiffre (0-9) <br /> 8 caractères
         </p>
-        <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 text-xl ">Je crée mon compte</button>
+        <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 text-xl items-center justify-center ">Je crée mon compte</button>
       </form>
 
 

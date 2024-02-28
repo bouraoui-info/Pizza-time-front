@@ -88,7 +88,7 @@ function DropDownMenu() {
           </div>
         </ul>
       )}
-      {showRegistration && <RegistrationPage />}
+      {showRegistration && <RegistrationPage setShowRegistration={setShowRegistration}/>}
     </div>
   );
 }
