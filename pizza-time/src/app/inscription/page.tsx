@@ -10,7 +10,7 @@ import { setIsDropdownOpen } from '../store';
 
 
 
-function RegistrationPage({setShowRegistration}:any) {
+function RegistrationPage({ setShowRegistration }: any) {
   const [name, setName] = useState('');
   const [firstName, setFirstName] = useState('');
   const [phone, setPhone] = useState('');
@@ -45,105 +45,86 @@ function RegistrationPage({setShowRegistration}:any) {
     }
   };
 
-    return (
+  return (
     <div className="registration-page bg-gray-100 ">
       <div className='d-flex flex-row mb-5'> <div style={{ top: "11px", position: "relative" }} onClick={() => setShowRegistration(false)} ><FiChevronLeft size={32} /></div>
         <h1 className='ml-5 pl-5'>Inscription</h1>
       </div>
-      <form onSubmit={handleSubmit} className="w-96">
+      <form onSubmit={handleSubmit} className="mb-2">
         <div className="mb-4">
-          <label htmlFor="name" className="mb-1 items-center">
-            <TbUserSquareRounded /><div className="mr-2"> Nom</div>
-          </label>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            className="input"
-            placeholder="Saisissez votre Nom"
-            required />
+          <div className="flex items-center mb-5">
+            <div className="mr-2">
+              <TbUserSquareRounded />
+            </div>
+            <label>Nom</label>
+            <input type="text" className='w-64 input ml-2 border rounded-lg p-1 outline-none' placeholder='Saisissez votre nom' onChange={(event) => setName(event.target.value)} />
+          </div>
+        </div>
+        <div className="mb-2">
+          <div className="flex items-center mb-5">
+            <div className="mr-2">
+              <TbUserSquareRounded />
+            </div>
+            <label>Prénom</label>
+            <input type="text" className='w-64 input ml-2 border rounded-lg p-1 outline-none' placeholder='Saisissez votre Prénom' onChange={(event) => setName(event.target.value)} />
+          </div>
+        </div>
+
+
+        <div className="mb-2">
+          <div className="flex items-center mb-5">
+            <div className="mr-2">
+              <GiSmartphone />
+            </div>
+            <label>Téléphone</label>
+            <input type="tel" className='w-64 input ml-2 border rounded-lg p-1 outline-none' placeholder='06 12 34 56 78' onChange={(event) => setPhone(event.target.value)} />
+          </div>
+        </div>
+
+
+
+        <div className="mb-2">
+          <div className="flex items-center mb-5">
+            <div className="mr-2">
+              <MdOutlineAttachEmail />
+            </div>
+            <label>E-mail</label>
+            <input type="email" className='w-64 input ml-2 border rounded-lg p-1 outline-none' placeholder='Saisissez votre e-mail' onChange={(event) => setEmail(event.target.value)} required />
+          </div>
+        </div>
+
+
+
+        <div className="mb-2">
+          <div className="flex items-center mb-5">
+            <div className="mr-2">
+              <RiLockPasswordFill />
+            </div>
+            <label>Mot de passe</label>
+            <input type="password" className='w-64 input ml-2 border rounded-lg p-1 outline-none' placeholder=' saissiez votre Mot de passe' onChange={(event) => setPassword(event.target.value)} required />
+          </div>
         </div>
 
         <div className="mb-4">
-          <label htmlFor="firstName" className="mb-1 items-center">
-            <TbUserSquareRounded /><div className="mr-2">Prénom</div>
 
-          </label>
-          <input
-            type="text"
-            id="firstName"
-            value={firstName}
-            onChange={(event) => setFirstName(event.target.value)}
-            className="input"
-            placeholder="Saisissez votre Prénom"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="phone" className="mb-1 items-center">
-            <GiSmartphone /> <div className="mr-2" >Téléphone</div>
 
-          </label>
-          <input
-            type="tel"
-            id="phone"
-            value={phone}
-            onChange={(event) => setPhone(event.target.value)}
-            className="input"
-            placeholder="06 12 34 56 78"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="email" className="mb-1 items-center">
-            <MdOutlineAttachEmail /> <div className="mr-2" >E-mail</div>
 
-          </label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            className="input"
-            placeholder="Saisissez votre e-mail"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="password" className="mb-1 items-center ">
-            <RiLockPasswordFill /> <div className="mr-2" ></div>
-            Mot de passe
-          </label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            className="input"
-            placeholder="Saissisez votre mot de passe"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="confirmPassword" className="mb-1 items-center">
-
-          </label>
-          <input
-            type="password"
-            id="confirmPassword"
-            value={confirmPassword}
-            onChange={(event) => setConfirmPassword(event.target.value)}
-            className="input"
-            placeholder="Confirmez votre mot de passe"
-            required
-          />
+         <div className="mb-2">
+            <div className="flex items-center mb-5">
+              <div className="mr-2">
+                <RiLockPasswordFill />
+              </div>
+              <label>Confirmer votre Mot de passe</label>
+              <input type="password" className='w-64 input ml-2 border rounded-lg p-1 outline-none' placeholder=' Confirmez votre mot de passe'onChange={(event) => setConfirmPassword(event.target.value)} required/>
+            </div>
+          </div>
         </div>
 
-        <p className="mb-4 text-sm">
+        <p className="text-xl mb-5">
           1 Minuscule & 1 Majuscule <br /> 1 chiffre (0-9) <br /> 8 caractères
         </p>
-        <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 text-xl items-center justify-center ">Je crée mon compte</button>
+        <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 text-xl block mx-auto mb-44">Je crée mon compte</button>
+
       </form>
 
 
