@@ -8,6 +8,7 @@ import Logobanner from '@/app/Home/LogoBanner';
 import Icons from '@/app/icons/Icons';
 
 import { card } from '@/constats';
+import Footer from '../common/Footer';
 
 interface Company {
     shopid: string;
@@ -46,7 +47,22 @@ const CompanyPage = ({ companyIndextoshow }: Props) => {
                     <Icons />
                 </div>
             </div>
-
+            <section className="my-16">
+                <div className='max-w-2xl mx-auto my-5 text-center'>
+                    <h2 className="text-3xl leading-tight tracking-tighter text-gray-600 sm:text-4xl">Catégories :</h2>
+                </div>
+                <div className="flex flex-row items-center md:justify-center justify-between mt-12 md:gap-12 overflow-x-auto">
+                    {MenuData.map((menu) => (
+                        <div className="flex flex-col rounded-full h-16  items-center justify-center p-3 cursor-pointer overflow-hidden hover:bg-slate-200"
+                            key={menu.id}>
+                            <img src={menu.image} width={60} height={60} alt='catégories' />
+                            <div className="whitespace-nowrap text-sm">
+                                <h3 className="text-center">{menu.title}</h3>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
             <section className="mb-24">
                 <div className="max-w-2x1 max-auto my-5 text-center">
                     <h2 className="text-3xl leading-tight tracking-tight text-gray-600 sm:text-4xl">
@@ -55,12 +71,16 @@ const CompanyPage = ({ companyIndextoshow }: Props) => {
                 </div>
 
                 <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                    {MenuData.map((menu :any, index) => (
+                    {MenuData.map((menu: any, index) => (
                         <MenuModal key={index} menu={menu} />
                     ))}
+                     
                 </div>
+               
             </section>
+            <Footer/>
         </div>
+
     );
 }
 

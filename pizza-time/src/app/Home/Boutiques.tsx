@@ -18,7 +18,7 @@ const Boutiques = () => {
   return (
     <div className='max-w-2xl mx-auto my-5'>
       <h2 className='text-3xl font-semibold text-center text-gray-600 sm:text-4xl'>Nos Boutiques</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
+      <div className="grid sm:grid-cols-2 md:grid-cols-2 gap-6 mt-8">
         {Object.values(card.shoplist).map((shoplist:any) => {
           const isOpen = isBoutiqueOpen(shoplist.openingTime, shoplist.closingTime);
           return (

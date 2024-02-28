@@ -7,15 +7,15 @@ import { useSnapshot } from "valtio";
 
 
 const CartSummary = () => {
-  const { panier,time } = useSnapshot(store);
+  const { panier, time } = useSnapshot(store);
 
 
   // Fonction pour calculer le nombre total d'articles
-  const calculateTotalNumberOfArticles = (cartItems:any) => {
+  const calculateTotalNumberOfArticles = (cartItems: any) => {
     let totalArticles = 0;
 
     // Itérer sur chaque article dans le panier et ajouter ses quantités au total
-    cartItems.forEach((item:any) => {
+    cartItems.forEach((item: any) => {
       totalArticles += item.quantity;
     });
 
@@ -23,11 +23,11 @@ const CartSummary = () => {
   };
 
   // Fonction pour calculer la somme des prix des articles
-  const calculateTotalPrice = (cartItems:any) => {
+  const calculateTotalPrice = (cartItems: any) => {
     let totalPrice = 0;
 
     // Itérer sur chaque article dans le panier et ajouter son prix à la somme totale
-    cartItems.forEach((item:any) => {
+    cartItems.forEach((item: any) => {
       totalPrice += item.price * item.quantity;
     });
 
