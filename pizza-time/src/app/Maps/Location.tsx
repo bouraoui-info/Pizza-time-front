@@ -32,19 +32,19 @@ const Location = () => {
   }
 
   return (
-    <div className="mx-8 md:mx-12 mt-12">
-      <form className="max-w-6xl mx-auto">
-        <div className="relative">
+    <div className="">
+      {/* <form className=""> */}
+        <div >
           {isEditing && (
             <>
-              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <div className="justify-center inset-y-0 left-0 flex items-center pl-3 pointer-events-none mb-4" style={{width:"108%"}}>
                 {/* Placeholder icon */}
-                <span aria-hidden="true" className="w-5 h-5 text-gray-700">
+                <span aria-hidden="true" className="w-5 h-5 text-gray-700 ">
                   <HiMapPin />
                 </span>
                 <input
                 type="search"
-                className="block w-96 p-4 pl-10 pr-4 text-sm text-gray-900 rounded-lg bg-gray-200 outline-none"
+                className="block w-80 p-4 pl-10  text-sm text-gray-900 rounded-lg bg-gray-200 outline-none"
                 placeholder="Saisissez votre adresse, code postal ou ville"
                 value={query}
                 onChange={handleChange}
@@ -69,7 +69,7 @@ const Location = () => {
             </div>
           )}
         </div>
-      </form>
+      {/* </form> */}
     </div>
   );
 };

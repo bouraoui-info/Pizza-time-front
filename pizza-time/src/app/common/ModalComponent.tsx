@@ -1,4 +1,3 @@
-"use client"
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { ModalBody, ModalFooter, ModalHeader } from "reactstrap";
@@ -10,7 +9,9 @@ import moment from 'moment'; // Import moment for time manipulation
 import { Menu } from "@/types";
 import store, { setPanier, setTime } from '../store';
 import { useSnapshot } from 'valtio';
-
+import moto from '../../../public/Objects/moto.png';
+import panierrepas from '../../../public/Objects/panierrepas.png';
+import Location from '../../app/Maps/Location';
 
 type ModalProps = {
   isOpenModal: boolean;
@@ -20,21 +21,20 @@ type ModalProps = {
   setIsOpenModal: Function;
   image: any;
   user: any;
-
 }
 
 const customStyles = {
   content: {
+    // inset:" 56% auto auto 50% !important",
     top: '50%',
     left: '50%',
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    cursor: 'pointer'
+    cursor: 'pointer',
   },
 };
-
 
 const ModalComponent: React.FC<ModalProps> = ({ isOpenModal, setIsOpenModal, title, image, menu, user }: ModalProps) => {
   const { panier } = useSnapshot(store);
@@ -45,6 +45,7 @@ const ModalComponent: React.FC<ModalProps> = ({ isOpenModal, setIsOpenModal, tit
   const closeModal = () => setIsOpen(false);
   const onOpen = () => setIsOpen(true);
   const [cartCount, setCartCount] = useState(0);
+  const [showlocation, setShowlocation] = useState(false);
 
   const PutItemsIntoCart = (MenuToAdd: any) => {
     let newPanier = [...panier]
@@ -52,6 +53,7 @@ const ModalComponent: React.FC<ModalProps> = ({ isOpenModal, setIsOpenModal, tit
     setPanier(newPanier)
     setTime(selectedTime?.format("HH:mm"))
   }
+
   return (
     <div>
       <Modal
@@ -63,17 +65,41 @@ const ModalComponent: React.FC<ModalProps> = ({ isOpenModal, setIsOpenModal, tit
         contentLabel="Example Modal"
       >
         <ModalHeader
-          className="text-capitalize"
+          className="text-capitalize mt-5"
           toggle={() => {
             setIsOpenModal(false);
           }}
         >
-          <h2>{title}</h2>
+          <h1>Mode de retrait</h1>
         </ModalHeader>
 
         <ModalBody>
-          <Image src={image} width={360} height={200} alt="menu-img" className="h-56 w-full object-scale-down rounded-t-lg" />
-          {menu && menu.prepType && (
+          <div className="flex items-center justify-center space-x-4">
+            <div className="container flex flex-col " onClick={() => setShowlocation(false)}>
+              <Image src={moto} alt="moto" className="border border-green-500 rounded-md m-2 hidden md:block w-24 h-24 hover:bg-green-500" />
+              <div className="ml-2">A Importer</div>
+            </div>
+            <div className="container flex flex-col items-center ml-5 pl-5 mb-1" onClick={() => setShowlocation(true)}>
+              <Image src={panierrepas} alt="pizza" className="border border-green-500 rounded-md m-2 hidden md:block w-24 h-24 hover:bg-green-500" />
+              <div className="ml-2">En Livraison</div>
+            </div>
+          </div>
+          <div className='d-flex flex-column'>
+            <div style={{marginLeft:"20%"}}>
+              <p className="text-lg font-semibold ml-5 pl-5 mt-2">Aujourd'hui</p>
+            </div>
+
+            {/* Affichage de la barre de localisation */}
+            <div className='mb-5'>
+              {showlocation ? (
+                <div style={{ position: "fixed", right: "10%" }}>
+                  <Location />
+                </div>
+              ) : null}
+            </div>
+
+            <div className='mt-5'  style={{marginLeft:"20%"}}><Image src={image} width={160} height={100} alt="menu-img" /></div>
+          </div>  {menu && menu.prepType && (
             <Disclosure>
               <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75">
                 <span>Preparation</span>
