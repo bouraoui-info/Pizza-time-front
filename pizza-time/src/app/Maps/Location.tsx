@@ -1,5 +1,4 @@
 import { ChangeEvent, useEffect, useState } from "react";
-import toast from "react-hot-toast";
 import { HiMapPin } from "react-icons/hi2";
 
 const Location = () => {
@@ -43,15 +42,16 @@ const Location = () => {
                 <span aria-hidden="true" className="w-5 h-5 text-gray-700">
                   <HiMapPin />
                 </span>
-              </div>
-              {/* Input field with placeholder */}
-              <input
+                <input
                 type="search"
                 className="block w-96 p-4 pl-10 pr-4 text-sm text-gray-900 rounded-lg bg-gray-200 outline-none"
                 placeholder="Saisissez votre adresse, code postal ou ville"
                 value={query}
                 onChange={handleChange}
               />
+              </div>
+              {/* Input field with placeholder */}
+          
             </>
           )}
 
