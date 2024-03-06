@@ -4,6 +4,8 @@ import SideBar from "../app/common/SideBar";
 import LogoBanner from "../app/Home/LogoBanner";
 import Boutiques from "../app/Home/Boutiques";
 import Footer from "./common/Footer";
+import HomeComponent from "./Connection/HomeComponent";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Home() {
@@ -15,6 +17,7 @@ export default function Home() {
       <LogoBanner />
       <Boutiques />
       <Footer/>
+      <HomeComponent/>
     </main>
   );
 }
