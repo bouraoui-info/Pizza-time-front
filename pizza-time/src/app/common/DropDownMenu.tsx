@@ -1,4 +1,3 @@
-"use client"
 import React, { useState } from 'react';
 import { CgMail } from "react-icons/cg";
 import { RiLockPasswordFill } from "react-icons/ri";
@@ -7,10 +6,11 @@ import { FiChevronLeft } from 'react-icons/fi';
 import RegistrationPage from '../inscription/page';
 import { setIsDropdownOpen, store } from '../store';
 import { useSnapshot } from 'valtio';
-
+import axios from 'axios';
 
 function DropDownMenu() {
-  const { isDropdownOpen } = useSnapshot(store)
+  const [error, setError] = useState('');
+  const { isDropdownOpen } = useSnapshot(store);
   const [showRegistration, setShowRegistration] = useState(false); // État pour afficher la page d'inscription
 
   const handleClose = () => {
@@ -20,6 +20,37 @@ function DropDownMenu() {
   const handleRegistrationClick = () => {
     setShowRegistration(true);
     console.log('Clicked on registration link. showRegistration:', showRegistration);
+  };
+
+  const handleLoginClick = async () => {
+    try {
+      //recuperer l'email et le mot de passe du formulaire
+      const emailElement = document.getElementById('email')  as HTMLInputElement;
+      const passwordElement = document.getElementById('password')  as HTMLInputElement;
+      let email =''; 
+      let password ='';
+
+      // recupération de la valeur des champs email et mot de passe 
+      if (emailElement && passwordElement) {
+
+        const email = emailElement.value;
+        const password = passwordElement.value;
+      }
+
+
+      const response = await axios.post('/api/login', { email, password });
+
+
+      // traitement de la reponse de la requette
+      if (response.status === 200) {
+        alert("Connexion réussie");
+      } else {
+        setError("Mauvaise combinaison d'email et de mot de passe");
+      }
+    } catch (error) {
+      console.error('Erreur lors de la vérification de l\'utilisateur:', error);
+      setError("Une erreur s'est produite lors de la connexion.");
+    }
   };
 
   return (
@@ -38,7 +69,7 @@ function DropDownMenu() {
                 <CgMail />
               </div>
               <label>Email</label>
-              <input className='input ml-2 border rounded-lg p-1 outline-none' placeholder='Saisissez votre e-mail' />
+              <input id="email" className='input ml-2 border rounded-lg p-1 outline-none' placeholder='Saisissez votre e-mail' />
             </div>
           </li>
           <li className="mb-2">
@@ -47,11 +78,11 @@ function DropDownMenu() {
                 <RiLockPasswordFill />
               </div>
               <label>Mot de passe</label>
-              <input type="password" className='w-64 input ml-2 border rounded-lg p-1 outline-none' placeholder='Saisissez votre mot de passe' />
+              <input id="password" type="password" className='w-64 input ml-2 border rounded-lg p-1 outline-none' placeholder='Saisissez votre mot de passe' />
             </div>
           </li>
           <li className="mb-5">
-            <button className="w-96 bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">
+            <button onClick={handleLoginClick} className="w-96 bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">
               Connexion
             </button>
           </li>
@@ -88,7 +119,15 @@ function DropDownMenu() {
           </div>
         </ul>
       )}
-      {showRegistration && <RegistrationPage setShowRegistration={setShowRegistration}/>}
+      {error && (
+        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 border rounded-lg shadow-lg">
+          <p className="text-red-500">{error}</p>
+          <button onClick={() => setError('')} className="bg-blue-500 text-white py-2 px-4 rounded-lg mt-4">
+            Fermer
+          </button>
+        </div>
+      )}
+      {showRegistration && <RegistrationPage setShowRegistration={setShowRegistration} />}
     </div>
   );
 }

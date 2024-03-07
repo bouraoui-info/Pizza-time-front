@@ -6,7 +6,6 @@ import { TbUserSquareRounded } from 'react-icons/tb';
 import { GiSmartphone } from 'react-icons/gi';
 import { MdOutlineAttachEmail } from 'react-icons/md';
 import { FiChevronLeft } from 'react-icons/fi';
-import { setIsDropdownOpen } from '../store';
 function RegistrationPage({ setShowRegistration }: any) {
   const [name, setName] = useState('');
   const [firstName, setFirstName] = useState('');
@@ -63,7 +62,7 @@ function RegistrationPage({ setShowRegistration }: any) {
               <TbUserSquareRounded />
             </div>
             <label>Prénom</label>
-            <input type="text" className='w-64 input ml-2 border rounded-lg p-1 outline-none' placeholder='Saisissez votre Prénom' onChange={(event) => setName(event.target.value)} />
+            <input type="text" className='w-64 input ml-2 border rounded-lg p-1 outline-none' placeholder='Saisissez votre Prénom' onChange={(event) => setFirstName(event.target.value)} />
           </div>
         </div>
 
