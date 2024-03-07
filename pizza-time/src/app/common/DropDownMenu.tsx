@@ -6,8 +6,6 @@ import { FiChevronLeft } from 'react-icons/fi';
 import RegistrationPage from '../inscription/page';
 import { setIsDropdownOpen, store } from '../store';
 import { useSnapshot } from 'valtio';
-import axios from 'axios';
-
 function DropDownMenu() {
   const [error, setError] = useState('');
   const { isDropdownOpen } = useSnapshot(store);
@@ -24,25 +22,40 @@ function DropDownMenu() {
 
   const handleLoginClick = async () => {
     try {
-      //recuperer l'email et le mot de passe du formulaire
-      const emailElement = document.getElementById('email')  as HTMLInputElement;
-      const passwordElement = document.getElementById('password')  as HTMLInputElement;
-      let email =''; 
-      let password ='';
-
-      // recupération de la valeur des champs email et mot de passe 
+      // Récupérer les éléments email et password
+      const emailElement = document.getElementById('email') as HTMLInputElement;
+      const passwordElement = document.getElementById('password') as HTMLInputElement;
+  
+      // Déclarer les variables email et password et les initialiser avec les valeurs des champs
+      let email = '';
+      let password = '';
+  
+      // Vérifier si les éléments existent
       if (emailElement && passwordElement) {
-
-        const email = emailElement.value;
-        const password = passwordElement.value;
+        // Récupérer les valeurs des champs email et mot de passe
+        email = emailElement.value;
+        password = passwordElement.value;
+      } else {
+        // Si les éléments n'existent pas, afficher une erreur
+        setError("Les champs email et mot de passe ne sont pas disponibles.");
+        return;
       }
-
-
-      const response = await axios.post('/api/login', { email, password });
-
-
-      // traitement de la reponse de la requette
-      if (response.status === 200) {
+  
+      // Créer l'objet contenant les données à envoyer
+      const data = { email, password };
+  
+      // Configuration de la requête
+      const requestOptions: RequestInit = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      };
+  
+      // Envoyer la requête POST à l'URL /api/login
+      const response = await fetch('http://localhost:3001/api/users', requestOptions);
+  
+      // Traiter la réponse de la requête
+      if (response.ok) {
         alert("Connexion réussie");
       } else {
         setError("Mauvaise combinaison d'email et de mot de passe");
@@ -52,7 +65,7 @@ function DropDownMenu() {
       setError("Une erreur s'est produite lors de la connexion.");
     }
   };
-
+  
   return (
     <div className="fixed top-5 right-0 bg-gray-100 p-4 border rounded-lg shadow-lg h-100">
       {!showRegistration && (
