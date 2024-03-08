@@ -19,12 +19,12 @@ prepare: string;
 export type CartItemType =CartOptions & Menu ;
 
 export type CartType = {
-    menus: CartItemType[];
+    panier: CartItemType[];
 }; 
 export type CartAction = {
-addToCart:(menu: CartItemType) => void;
-removeFromCart:(menu: CartItemType) => void;
-increaseCartItem:(menu: CartItemType, id:string) => void;
-decreaseCartItem:(menu: CartItemType, id:string) => void;
+addToCart:(item: CartItemType) => void;
+deleteFromcart:(id: string) => void;
+increaseCartItem:(menu: CartItemType[], id:string) => void;
+decreaseCartItem:(menu: CartItemType[], id:string) => void;
 resetCart:()=>void; 
 }; 

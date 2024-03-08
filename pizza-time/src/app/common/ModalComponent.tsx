@@ -6,12 +6,14 @@ import { Disclosure } from "@headlessui/react";
 import { HiChevronDown } from "react-icons/hi2";
 import { TimePicker } from 'antd'; // Import TimePicker from Ant Design
 import moment from 'moment'; // Import moment for time manipulation
-import { Menu } from "@/types";
-import store, { setPanier, setTime } from '../store';
+import { CartType, Menu } from "@/types";
+import  {setTime, setpanier,store, usecartStore } from '../store';
 import { useSnapshot } from 'valtio';
 import moto from '../../../public/Objects/moto.png';
 import panierrepas from '../../../public/Objects/panierrepas.png';
 import Location from '../../app/Maps/Location';
+
+
 
 type ModalProps = {
   isOpenModal: boolean;
@@ -48,11 +50,18 @@ const ModalComponent: React.FC<ModalProps> = ({ isOpenModal, setIsOpenModal, tit
   const [showlocation, setShowlocation] = useState(false);
 
   const PutItemsIntoCart = (MenuToAdd: any) => {
-    let newPanier = [...panier]
-    newPanier.push(MenuToAdd)
-    setPanier(newPanier)
+    console.log({MenuToAdd});
+    
+    let newpanier:any = [...JSON.parse(JSON.stringify(panier))];
+    console.log({newpanier});
+    
+   newpanier.push(MenuToAdd);
+     setpanier(newpanier)
+    // console.log({newpanier});
+    
     setTime(selectedTime?.format("HH:mm"))
   }
+  
 
   return (
     <div>
