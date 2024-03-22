@@ -22,6 +22,7 @@ function DropDownMenu() {
 
   const handleLoginClick = async () => {
     try {
+      // debugger;
       // Récupérer les éléments email et password
       const emailElement = document.getElementById('email') as HTMLInputElement;
       const passwordElement = document.getElementById('password') as HTMLInputElement;
@@ -45,17 +46,20 @@ function DropDownMenu() {
       const data = { email, password };
   
       // Configuration de la requête
+   
       const requestOptions: RequestInit = {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
       };
   
       // Envoyer la requête POST à l'URL /api/login
       const response = await fetch('http://localhost:3001/api/users', requestOptions);
-  
+      const result = await response.json();
+  console.log({result});
+  let user=result.filter((el:any)=>el.email===email && el.password===password);
       // Traiter la réponse de la requête
-      if (response.ok) {
+      if (user.length!==0) {
+        localStorage.setItem('user', JSON.stringify(user[0]));
         alert("Connexion réussie");
       } else {
         setError("Mauvaise combinaison d'email et de mot de passe");
