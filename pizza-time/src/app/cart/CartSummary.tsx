@@ -41,7 +41,7 @@ const CartSummary = () => {
     try {
 
 let user=localStorage.getItem("user")
-      const response = await fetch("http://localhost:3001/api/orders", {
+      const response = await fetch("http://localhost:3001/api/panier/AddPanier", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
